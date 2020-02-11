@@ -1,0 +1,67 @@
+Value == Object
+Data Types
+    str(ing) characters in quotation marks 
+        '' "" """ """
+    int(eger) - no decimal points
+        commas not legal integer
+    float points
+Type Conversion Functions
+    int()
+    float()
+    str()
+Examples
+    print(type("17"))
+    print(type("3.2"))
+    print(type("Hello"))
+Variable and Assignment Statements:
+Names for objects or values are called variables
+Names are like sticky notes
+    name = value
+    = is the assignment sign
+    == is equality
+namespare           objects
+   n                   17 ---- int
+   pi                  3.14 ---- float
+Expressions: 
+    a combination of values, variables, operators, and calls to functions. 
+    1 + 1
+    2 * 2
+    len("luther")
+    Can use a value or a variables
+    operators include:
+        +   -   *   /
+        **  //
+        % for remainder
+    MyNumber % 2 } 0
+Statement:
+    Instruction that the Python interpreter can execute.
+    Includes: while, for, if, and import
+Operators: +    -   *   /
+    operands: the valuethe operator works on.
+    integer division
+    modulous operator(remainder operator) %
+Input function: prompt a string to the user
+    input(" ")
+        city = input("where do you live?: )
+        print(city)
+        print(type(city)) ---- will print the type of class
+        age = int(str_age) --- turns string into an integer
+Operator Precedence: Order of operations PEMDAS
+    parentheses come first.
+    second  **
+    third   *   /   //  %
+    last    +   -
+Reassignment: giving a new value to an existing variables
+    bruce = 5
+    print(bruce)
+    bruce = 7
+    print(bruce)
+        if a = 5
+        and b = a
+        then b = 5
+Updating variables: the new value of a variable depends on the old value.
+    if x = 6
+    and x = x + 1
+    then x = 7
+        increments(bumping) + 1
+        decrements - 1

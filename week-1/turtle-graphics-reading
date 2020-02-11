@@ -1,0 +1,138 @@
+Turtle is the name of the Module
+    Turtle type         turtle.Turtle()
+    Screen type         turtle.Screen()
+Canvas is the window to draw on.
+Turtle begins by facing EAST unless directions specify otherwise.
+Window Background Color     wn.bgcolor
+Turtle's assigned name      alex = turtle.Turtle()
+Color of turtle             alex.color("blue)
+Size of pen                 alex.pensize(3)
+Exit window                 wn.exitonclick()
+Loop Variable Example:
+    for name in ["Joe", "Amy", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
+    print("Hi", name, "Please come to my party on Saturday!")
+
+Control flow until now has been strictly top to bottom, one statement at a time. 
+We call this type of control sequential. In Python flow is sequential as long as
+successive statements are indented the same amount. 
+The for statement introduces indented sub-statements after the 
+for-loop heading.
+For-Loop:
+    for i in range(4):
+        turtle.right(90)
+        turtle.forward(20)
+    for aColor in ["yellow", "red", "purple", "blue"]:
+        alex.color(aColor)     This changes the color of each line.
+        alex.forward(50)
+        alex.left(90)
+Count from 0
+    print(list(range(4)))           prints 0,1,2,3
+    print(list(range(1,5)))         prints 1,2,3,4
+    print(list(range(1,5 + 1)))     prints 1,2,3,4,5
+    print(list(range(0, 10, 2)))    prints 0,2,4,6,8
+    print(list(range(5, 0, -1)))    prints 5,4,3,2,1
+Direction of Turtle 
+    Up          turtle.up()- lifts turtle
+    Down        turtle.down()- drops turtle
+    Shape       turtle.shape()- designates a specific shape
+        arrow, blank, circle, classic, square, triangle, turtle
+    Speed       turtle.speed(0)- (0-10)
+    Stamp       turtle.stamp()- stamps the shape of the turtle
+
+Method      Parameters           Description
+
+Turtle          None             Creates and returns a new turtle object
+
+forward         distance         Moves the turtle forward
+
+backward        distance         Moves the turle backward
+
+right           angle            Turns the turtle clockwise
+
+left            angle            Turns the turtle counter clockwise
+
+up              None             Picks up the turtles tail
+
+down            None             Puts down the turtles tail
+
+color           color name       Changes the color of the turtle’s tail
+
+fillcolor       color name       Changes the color of the turtle will use to fill a polygon
+
+heading         None             Returns the current heading
+
+position        None             Returns the current position
+
+goto            x,y              Move the turtle to position x,y
+
+begin_fill      None             Remember the starting point for a filled polygon
+
+end_fill        None             Close the polygon and fill with the current fill color
+
+dot             None	         Leave a dot at the current position
+
+stamp	        None	         Leaves an impression of a turtle shape at the current location
+
+shape           shape name       Should be ‘arrow’, ‘classic’, ‘turtle’, ‘circle’ or ‘square’
+
+
+attribute
+    Some state or value that belongs to a particular object. For example, tess has a color.
+
+canvas
+    A surface within a window where drawing takes place.
+
+control flow
+    See flow of execution in the next chapter.
+
+for loop
+    A statement in Python for convenient repetition of statements in the body of the loop.
+
+instance
+    An object that belongs to a class. tess and alex are different instances of the class Turtle
+
+invoke
+    An object has methods. We use the verb invoke to mean activate the method. 
+    Invoking a method is done by putting parentheses after the method name, with some possible arguments. 
+    So wn.exitonclick() is an invocation of the exitonclick method.
+
+iteration
+    A basic building block for algorithms (programs). It allows steps to be repeated. 
+    Sometimes called looping.
+
+loop body
+    Any number of statements nested inside a loop. 
+    The nesting is indicated by the fact that the statements are indented under the for loop statement.
+
+loop variable
+    A variable used as part of a for loop. It is assigned a different value on each iteration of the loop, 
+    and is used as part of the terminating condition of the loop, when it can no longer get a further value.
+
+method
+    A function that is attached to an object. Invoking or activating the method causes the object to respond in some way,
+    e.g. forward is the method when we say tess.forward(100).
+
+module
+    A file containing Python definitions and statements intended for use in other Python programs. 
+    The contents of a module are made available to the other program by using the import statement.
+
+object
+    A “thing” to which a variable can refer. This could be a screen window, or one of the turtles you have created.
+
+range
+    A built-in function in Python for generating sequences of integers. 
+    It is especially useful when we need to write a for loop that executes a fixed number of times.
+
+sequential
+    The default behavior of a program. Step by step processing of algorithm.
+
+state
+    The collection of attribute values that a specific data object maintains.
+
+terminating condition
+    A condition that occurs which causes a loop to stop repeating its body. 
+    In the for loops we saw in this chapter, the terminating condition has been when there are no 
+    more elements to assign to the loop variable.
+
+turtle
+    A data object used to create pictures (known as turtle graphics).
