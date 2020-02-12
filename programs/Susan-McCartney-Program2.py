@@ -70,7 +70,7 @@ def evaluate(poker_hand):
         print("Nothing")
 		
 # -----------------------------------------+
-
+ #Test data
 def main():
     print("CSCI 127: Poker Hand Evaluation Program")
     print("---------------------------------------")
