@@ -20,3 +20,4 @@ populations = [["California", 38332521],
                ["Georgia", 9992167],
                ["Michigan", 9895622],
                ["North Carolina", 9848060]]
+print(populations[0][1])

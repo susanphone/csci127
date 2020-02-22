@@ -23,7 +23,7 @@ Slice is done like so:  [start:end]
     How to split in a split: [4][1]
             This would give the value within the list.
     Try slicing the whole list to copy it.
-        youlist = mylist[:]
+        yourlist = mylist[:]
         mylist[0] = 34
             [34, 2, 3]
         yourlist
