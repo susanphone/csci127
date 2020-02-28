@@ -26,4 +26,3 @@
         the new value of a variable depends on the old value.
         use increment(bumping) to add ( + 1)
         use decrement to subtract ( - 1)
-

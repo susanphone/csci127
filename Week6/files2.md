@@ -39,3 +39,29 @@
         print(items[0], (total/len(grades))
 
         f.close()
+
+
+earthquakes = open("earthquakes.csv", "r")
+total = 0
+for magnitude in earthquakes:
+    earthquakes = open("earthquakes.csv", "r")
+    for magnitude in earthquakes:
+        mag = magnitude[-8]
+        items = magnitude.split(", ")
+        maglist = items[1:]
+    print(maglist)
+
+
+    mag = magnitude[-8]
+    mag = mag.split(", ")
+    # maglist = ", ".join(mag)
+    maglist = mag[0:]
+    # for char in maglist:
+    #     if char in maglist:
+    #         maglist.remove(char)
+    # maglist.remove("l")
+    # for num in maglist:
+    #     total += float(maglist)
+    print(maglist[0:], end= ", ") 
+    # total += maglist
+    # print(total)
