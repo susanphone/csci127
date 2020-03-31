@@ -1,5 +1,5 @@
 infile = open("grades.csv", "r")    #r is for reading
-outfile = open(grades2.csv, "w")    #w is for writing
+outfile = open("grades2.csv", "w")    #w is for writing
 
 first = infile.readline()              #remove first line in csv
 first = first[:-1]
@@ -16,10 +16,18 @@ for line in infile:
     ave = (int(cells[1]) + int(cells[2]))/2
     print(ave)
 
-    outline = line[:-1]
-    outline += ","
-    outline += str(ave)
-    outline += "/n"
+    # if line[-1] is '\n':
+    #     outline = line[:-1] #what about the 9 at the very end?
+    # else:
+    #     outline = line
+    # outline += ","
+    # outline += str(ave)
+    # outline += "\n"
+    if line[-1] is '\n':
+        outline = line.replace('\n', ', ' + str(ave) + '\n')
+    else:
+        outline = line + ',' + str(ave) + '\n'
+
     outfile.write(outline)
 
 infile.close()

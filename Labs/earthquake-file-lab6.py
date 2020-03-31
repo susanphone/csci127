@@ -16,10 +16,10 @@
     #In this sample run, the user inputs 5.0 for the lower bound and 6.0 for the upper bound.
 # Spreadsheet columns go A - Q, Need H - Q
 #Q-1 P-2 O-3 N-4 M-5 L-6 K-7 J-8 I-9 H-10
-
 #magnitude is J
+
 def average_magnitude(file_name):
-    csv = open(file_name, "r")
+    csv = open(file_name, "r") #csv.reader(file, delimeter ",")
     total = 0.0
     numLines = 0
     for line in csv:
@@ -67,9 +67,7 @@ def count_earthquakes(file_name, lower_bound, upper_bound):
     csv.close()
     return count
 
-# # The missing functions go here.
-
-# # --------------------------------------
+# --------------------------------------
 
 
 def main(file_name):
