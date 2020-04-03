@@ -9,48 +9,59 @@ import string
 # A brief overview of the program.
 # ---------------------------------------
 
-# Your solution goes here ...
-
-# ---------------------------------------
-# Do not change anything below this line
-# ---------------------------------------
 class Pokemon:
     """Base class for any animated creature from Pokemon"""
     def __init__(self, name, number, combat_points, types):
-        self.Pokemon_name = name
-        self.Pokemon_number = number
-        self.attack_points = combat_points
-        self.Pokemon_type = type
+        self.pokemon_name = name
+        self.pokemon_number = number
+        self.combat_points = combat_points
+        self.pokemon_type = types
+    
+    def get_name(self, name):
+        self.pokemon_name = name
+    
+    def get_number(self, number):
+        self.pokemon_number = number
+    
+    def get_combat_points(self, combat_points):
+        self.combat_points = combat_points
+    
+    def get_types(self, types):
+        self.pokemon_type = types
 
-    def lookup_by_name(self, name, pokedex):  #getters
+def lookup_by_name(self, name, pokedex):  #getters
+        name = pokedex.get
         return self.name
     
-    def lookup_by_number(self, number, pokedex): #getters
+def lookup_by_number(self, number, pokedex): #getters
+        number = pokedex.get
         return self.number
     
-    def total_by_type(self, Pokemon_type, pokedex):
+def total_by_type(self, pokemon_type, pokedex):
+        pokemon_type = pokedex.get
         return self.types
     
-    def average_hit_points(self, pokedex):
+def average_hit_points(self, combat_points, pokedex):
+        combat_points = pokedex.get
         return self.combat_points
 
 def print_menu():
-    # print("1. Print Pokedex")
-    # print("2. Print Pokemon by Name")
-    # print("3. Print Pokemon ny Number")
-    # print("4. Count Pokemon with Type")
-    # print("5. Print Average Pokemon Combat Points")
-    # print("6. Quit \n")
-    # print("Enter a menu option: ")
-    # return print_menu()
-    pass
+    print("""
+    1. Print Pokedex
+    2. Print Pokemon by Name
+    3. Print Pokemon ny Number
+    4. Count Pokemon with Type
+    5. Print Average Pokemon Combat Points
+    6. Quit
+    """)
+
 
 def print_pokedex(pokedex):
-    # for pokemon in pokedex:
-    #     for i in range(pokedex):
-    #         pokedex+= (" Number: " + i[0], ", Name: " + i[1] + ", CP: " + i[2] + ", Type: " + i[3])
-    # return print_pokedex(pokedex)
     pass
+# ---------------------------------------
+# Do not change anything below this line
+# ---------------------------------------
+
 
 def create_pokedex(filename):
     pokedex = []

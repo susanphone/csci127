@@ -4,9 +4,13 @@ import random
 # -------------------------------------------------
 # CSCI 127, Lab 9
 # April 2, 2020
-# Your Name
+# Susan McCartney
 # -------------------------------------------------
-
+# Yahtzee is used for this program, but with a twist,
+# the use of eight-sided dice! 
+# Since I use Linux, I noticed that the number outcomes
+# might look differently to my computer than they do on
+# a Windows or Mac computer.
 
 class Die:
 
@@ -39,33 +43,32 @@ class Yahtzee:
         for roll in self.rolls:
             counts[roll] += 1
         return counts
-
+        
     def is_it_low_roll(self):
+        """If dice rolls only 1s and/or 2s, then it is a low roll"""
         counts = self.count_outcomes()
         if (counts[1] + counts[2] == 5):
             return True
         return False
 
+        
     def is_it_three_of_a_kind(self):
+        """If the dice rolls the same number exactly three times, then it is a three of a kind"""
         counts = self.count_outcomes()
         for i in counts:
             if counts[i] == 3:
+                print(counts)
                 return True
         return False
 
     
     def is_it_large_straight(self):
-        counts = self.count_outcomes()
-        rolls = self.rolls
-        print(counts)
-        print(rolls)
-        rolls.sort()
-        print(rolls)
+        """If the 5 rolls are consecutive and each roll has a difference of 1, then it is a large straight."""
+        rolls = np.sort(self.rolls)
         for i in range(4):
-            # print(i)
-            if (rolls[i+1] - rolls[i] == 1):
-                return True
-        return False
+            if (rolls[i+1] - rolls[i]) != 1:
+                return False
+        return True
 
 # -------------------------------------------------
 
@@ -98,4 +101,4 @@ def main(how_many):
 # -------------------------------------------------
 
 
-main(1)
+main(20000)
