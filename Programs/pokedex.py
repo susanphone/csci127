@@ -21,15 +21,36 @@ class Pokemon:
         self.Pokemon_number = number
         self.attack_points = combat_points
         self.Pokemon_type = type
-    def print_menu
-    def print_pokedex
-    def total_by_type
-    def lookup_by_name #getters
-    def lookup_by_number #getters
-    def average_hit_points
-    def __str__()
 
+    def lookup_by_name(self, name, pokedex):  #getters
+        return self.name
+    
+    def lookup_by_number(self, number, pokedex): #getters
+        return self.number
+    
+    def total_by_type(self, Pokemon_type, pokedex):
+        return self.types
+    
+    def average_hit_points(self, pokedex):
+        return self.combat_points
 
+def print_menu():
+    # print("1. Print Pokedex")
+    # print("2. Print Pokemon by Name")
+    # print("3. Print Pokemon ny Number")
+    # print("4. Count Pokemon with Type")
+    # print("5. Print Average Pokemon Combat Points")
+    # print("6. Quit \n")
+    # print("Enter a menu option: ")
+    # return print_menu()
+    pass
+
+def print_pokedex(pokedex):
+    # for pokemon in pokedex:
+    #     for i in range(pokedex):
+    #         pokedex+= (" Number: " + i[0], ", Name: " + i[1] + ", CP: " + i[2] + ", Type: " + i[3])
+    # return print_pokedex(pokedex)
+    pass
 
 def create_pokedex(filename):
     pokedex = []
