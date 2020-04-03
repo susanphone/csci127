@@ -16,36 +16,69 @@ class Pokemon:
         self.pokemon_number = number
         self.combat_points = combat_points
         self.pokemon_type = types
+   
+    def get_name(self):
+        # Retrieves the Pokemon's name from the Pokemon class
+        return self.pokemon_name
     
-    def get_name(self, name):
-        self.pokemon_name = name
+    def get_number(self):
+        # Retrieves the Pokemon's number from the Pokemon class
+        return self.pokemon_number
     
-    def get_number(self, number):
-        self.pokemon_number = number
-    
-    def get_combat_points(self, combat_points):
-        self.combat_points = combat_points
-    
-    def get_types(self, types):
-        self.pokemon_type = types
-
-def lookup_by_name(self, name, pokedex):  #getters
-        name = pokedex.get
-        return self.name
-    
-def lookup_by_number(self, number, pokedex): #getters
-        number = pokedex.get
-        return self.number
-    
-def total_by_type(self, pokemon_type, pokedex):
-        pokemon_type = pokedex.get
-        return self.types
-    
-def average_hit_points(self, combat_points, pokedex):
-        combat_points = pokedex.get
+    def get_combat_points(self):
+        # Retrieves the Pokemon's combat points from the Pokemon class
         return self.combat_points
+    
+    def get_type(self):
+        # Retrieves the Pokemon's types from the Pokemon Class
+        return self.pokemon_type
+    
+    def print_pokemon(self):
+        # Prints the credentials of each pokemon.
+        print(self)
+
+def lookup_by_name(pokedex, name):
+# Find the Pokemon's name in the Pokedex and return the info on that Pokemon.
+    for pokemon in pokedex:
+        if pokemon.get_name() == name:
+            pokemon.print_pokemon()
+            break
+        else:
+            print("There is no Pokemon named " + name)
+        
+    
+def lookup_by_number(pokedex, number):
+#Find the Pokemon's number in the Pokedex and return the info on that Pokemon.
+    for pokemon in pokedex:
+        if pokemon.get_number() == number:
+            pokemon.print_pokemon()
+            break
+        else:
+            print("There is no Pokemon number " + number)
+    
+def total_by_type(pokedex, pokemon_type):
+#Find all the Pokemon with the type given by the user. 
+    types = 0
+    for pokemon in pokedex:
+        if pokemon.get_type() == pokemon_type:
+            types += 1
+        else:
+            print("Number of Pokemon that contain type " + types + " = 0")
+    return types
+
+def average_hit_points(pokedex, combat_points):
+#add up all the combat points of every Pokemon and find the average hit points.
+    cp = 0
+    for pokemon in pokedex:
+        if pokemon.get_combat_points():
+            cp += combat_points
+    print("Average Pokemon combat points = " + cp)
+
+    
+    
 
 def print_menu():
+#Print menu of options to choose from.
     print("""
     1. Print Pokedex
     2. Print Pokemon by Name
@@ -57,7 +90,10 @@ def print_menu():
 
 
 def print_pokedex(pokedex):
-    pass
+#Print all the pokemon and their credentials.
+    for pokemon in pokedex:
+        pokemon.print_pokemon()
+
 # ---------------------------------------
 # Do not change anything below this line
 # ---------------------------------------
