@@ -1,5 +1,9 @@
+print
 one
+every
 two
+other
+six
 line
 four
-five
+!!!!

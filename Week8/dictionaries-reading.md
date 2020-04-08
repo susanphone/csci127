@@ -101,7 +101,7 @@ This outcome would look like this:
     Got bananas that maps to 312
     Got oranges that maps to 525
     Got pears that maps to 217
-## in and not it operators: 
+## it and not it operators: 
 ### Test if a key is in the dict and prevent a non-existent runtime error from occuring.
     inventory = {'apples': 430, 'bananas': 312, 'oranges': 525, 'pears': 217}
     print('apples' in inventory)
