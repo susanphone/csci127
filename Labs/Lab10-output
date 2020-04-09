@@ -1,0 +1,44 @@
+Push 1, 2, 3, 4, 5
+---------------------
+Contents: 1 
+Contents: 1 2 
+Contents: 1 2 3 
+Contents: 1 2 3 4 
+Contents: 1 2 3 4 5 
+
+Pop one item
+----------------
+Contents: 1 2 3 4 
+
+Pop all items
+---------------
+Item popped: 4
+Contents: 1 2 3 
+Item popped: 3
+Contents: 1 2 
+Item popped: 2
+Contents: 1 
+Item popped: 1
+Contents: 
+
+Pushed: 10, 11, 12, 13, 14, 15
+-------------------------------
+Contents: 10 11 12 13 14 15 
+
+
+
+
+Assignment
+
+    In this assignment, you will use object-oriented programming to implement a data structure called a stack. An example of a stack is a PEZ dispenser: the first candy you load into the bottom will be the last to come out. The second candy you put in will be the second to last out, and so on. The lineup can grow and shrink dynamically over time.
+    Download lab10.py, rename it according to the instructions above, and make sure you understand it.
+    Take the program above and modify it by adding the missing Stack class such that when the program is run, it produces this output.
+
+Grading - 10 points
+
+    1 points - The constructor of the Stack class is correct.
+    1 points - The push method of the Stack class is correct. The method adds an item to the stack.
+    1 points - The pop method of the Stack class is correct. The method removes and returns the item that has been in the stack most recently.
+    1 points - The is_empty method of the Stack class is correct. A stack is empty when it contains no items.
+    2 points - The __str__ method of the Stack class is correct.
+    3 points - In the main function, the statement number += 15 is implemented correctly using the appropriate magic method in the Stack class.
