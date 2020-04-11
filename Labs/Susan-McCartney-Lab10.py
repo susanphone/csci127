@@ -18,12 +18,19 @@ class Stack:
         return self.__str__()
 
     def pop(self):
-        pass
+        return self.items.pop()
+        # return "Item popped: " + self.__str__()
 
-    def is_empty(self)
+    def is_empty(self):
+        if len(self.items) == 0:
+            return True
+
     
     def __str__(self):
-        pass
+        # item_lis = self.items
+        # for items in range(item_lis):
+        #     item_list += items + " "
+        return "Contents: " + str(self.items)
 
 # -----------------------------------------------------
 
