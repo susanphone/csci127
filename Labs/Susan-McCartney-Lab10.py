@@ -1,36 +1,43 @@
 # -----------------------------------------------------
 # CSCI 127, Lab 10                                    |
-# April 9, 2019                                       |
+# April 10, 2019                                       |
 # Susan McCartney                                     |
 # -----------------------------------------------------
-
-# Your solution goes here.  Do not change anything below.
+# Using the class method and data structures
+# focussed on stacks to go through a list of
+# items and return was is "pushed" and what 
+# is "popped."
 class Stack:
     def __init__(self, name):
+        #init stack class and create variables
         self.name = name
         self.items = []
     
     def push(self, num):
+        #a method that pushes the stack
         self.items.append(num)
 
     def __iadd__(self, other):
+        # Magic method that overrides the operator for n += 15
         self.items.append(other)
         return self.__str__()
 
     def pop(self):
+        # A method that pops items from the stack
         return self.items.pop()
-        # return "Item popped: " + self.__str__()
 
     def is_empty(self):
+        # Boolean function used to determine if the stack is empty
         if len(self.items) == 0:
             return True
 
     
     def __str__(self):
-        # item_lis = self.items
-        # for items in range(item_lis):
-        #     item_list += items + " "
-        return "Contents: " + str(self.items)
+        #str method for producing the right print format
+        stack_contents = "Contents: "
+        for num in self.items:
+            stack_contents += str(num) + " "
+        return stack_contents
 
 # -----------------------------------------------------
 
@@ -53,7 +60,7 @@ def main():
     print("---------------")
     while not numbers.is_empty():
         print("Item popped:", numbers.pop())
-        print("In while. ", numbers)
+        print(numbers)
 
     # Push 10, 11, 12, 13, 14
     for number in range(10, 15):
@@ -64,7 +71,6 @@ def main():
     print("\nPushed: 10, 11, 12, 13, 14, 15")
     print("-------------------------------")
     print(numbers)
-
 # -----------------------------------------------------
 
 
