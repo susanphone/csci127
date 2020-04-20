@@ -44,6 +44,8 @@ def main(graph_min, graph_max):
 #Label the x and y axis
     plt.ylabel('Y')
     plt.xlabel('X')
+    fig = plt.figure(0)
+    fig.canvas.set_window_title('Graph')
     plt.show()
 
 # --------------------------------------
