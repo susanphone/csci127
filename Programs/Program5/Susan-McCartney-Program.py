@@ -56,29 +56,36 @@ class PegRectangleSolitaire:
 # not modify anything else.             |
 # --------------------------------------|
     def game_won(self):
-        pass #???????
-    def final_message(self):
+        if self.pegs_left <= 7:
+            self.game_won = True
+        return self.game_won
+
+    def final_message(self,):
 #For when the game is over if statements for
 #number of remaining pegs:
-        #if pegs_remaining <= 2:
-            return "You're a DigiPeg Genius!"
-        #if pegs_remaining > 2 or <= 4: 
-            return "Not too shabby, rookie."
-        #if pegs_remaining > 4 or <= 6:
-            return "That's nothing to write home about."
-        #if pegs_remaining >7:
-            return "You're a DigiPeg Igno-Ra-Moose"
-    def legal_move(self): #boolean
-#(row_start and end, and column_start and end)
-#if peg is one away from empty space:
-    #legal move
-        pass
+        if self.pegs_left <= 2:
+            self.final_message = "You're a DigiPeg Genius!"
+        if self.pegs_left > 2 or self.pegs_left <= 4:
+            self.final_message = "Not too shabby, rookie."
+        if self.pegs_left > 4 or self.pegs_left <= 6:
+            self.final_message = "That's nothing to write home about."
+        if self.pegs_left >7:
+            self.final_message = "You're a DigiPeg Igno-Ra-Moose"
+        return self.final_message
 
-    def make_move(self):
+    def legal_move(self, empty_row, empty_col): #boolean
+#(row_start and end, and column_start and end)
+        if self.legal_move is True:
+#if peg is one away from empty space:
+#if peg moved is in same column or row as empty space
+    #legal move
+            return self.legal_move
+
+    def make_move(self, empty_row, empty_col):
         #init???
 #(row_start and end, and column_start and end)
-#if move is legal, move peg to user_input
-        pass
+#if move is legal, move peg to end_row, end_column
+        return self.make_move
 
 # ---------------------------------------
 # End of PegRectangleSolitaire Class    |
