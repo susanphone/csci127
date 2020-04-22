@@ -19,13 +19,14 @@ import string
 class PegRectangleSolitaire:
 
     def __init__(self, rows, columns, empty_row, empty_col):
-        self.board = np.full((rows, columns), True)
+        self.board = np.full((rows, columns), True) #array filled with true
         self.board[empty_row][empty_col] = False
         self.pegs_left = rows * columns - 1
         
 # ---------------------------------------
 
     def __str__(self):
+#follow str method for help, how 2d structure is being built
         answer = "   "
         for column in range(self.board.shape[1]):
             answer += " " + str(column + 1) + "  "
@@ -55,10 +56,25 @@ class PegRectangleSolitaire:
 # The four missing methods go here.  Do |
 # not modify anything else.             |
 # --------------------------------------|
-    def game_won(self):
+    def game_over(self):
         if self.pegs_left <= 7:
-            self.game_won = True
-        return self.game_won
+            self.game_over = True
+        return False
+
+    def legal_move(self, row_start, col_start, row_end, col_end):  # boolean
+        #(row_start and end, and column_start and end)
+        if self.legal_move is True:
+            
+#if peg is one away from empty space:
+#if peg moved is in same column or row as empty space
+    #legal move
+            return self.legal_move
+
+    def make_move(self, row_start, col_start, row_end, col_end):
+        #init???
+#(row_start and end, and column_start and end)
+#if move is legal, move peg to end_row, end_column
+        return self.make_move
 
     def final_message(self,):
 #For when the game is over if statements for
@@ -73,19 +89,6 @@ class PegRectangleSolitaire:
             self.final_message = "You're a DigiPeg Igno-Ra-Moose"
         return self.final_message
 
-    def legal_move(self, empty_row, empty_col): #boolean
-#(row_start and end, and column_start and end)
-        if self.legal_move is True:
-#if peg is one away from empty space:
-#if peg moved is in same column or row as empty space
-    #legal move
-            return self.legal_move
-
-    def make_move(self, empty_row, empty_col):
-        #init???
-#(row_start and end, and column_start and end)
-#if move is legal, move peg to end_row, end_column
-        return self.make_move
 
 # ---------------------------------------
 # End of PegRectangleSolitaire Class    |
@@ -101,7 +104,7 @@ def get_choice(low, high, message):
             if character not in string.digits:
                 legal_choice = False
                 print("That is not a number, try again.")
-                break 
+                break
         if legal_choice:
             answer = int(answer)
             if (answer < low) or (answer > high):
@@ -111,34 +114,33 @@ def get_choice(low, high, message):
 
 # ---------------------------------------
 
+
 def main():
     print("Welcome to Peg Rectangle Solitaire!")
     print("-----------------------------------\n")
-    
+
     rows = get_choice(1, 9, "Enter the number of rows")
     columns = get_choice(1, 9, "Enter the number of columns")
     row = get_choice(1, rows, "Enter the empty space row") - 1
-    column = get_choice(1, columns, "Enter empty space column") - 1   
+    column = get_choice(1, columns, "Enter empty space column") - 1
     game = PegRectangleSolitaire(rows, columns, row, column)
     print()
 
-    keep_going = "yes"
     print(game)
-    while (not game.game_won() and keep_going.lower() == "yes"):
-        row_start = get_choice(1, rows, "Enter the row of the peg to move") - 1
-        col_start = get_choice(1, columns, "Enter the column of the peg to move") - 1
+    while (not game.game_over()):
+        row_start = get_choice(1, rows, "Enter the row of the peg to move") - 1 #keep trach of what empty space is
+        col_start = get_choice(
+            1, columns, "Enter the column of the peg to move") - 1
         row_end = get_choice(1, rows, "Enter the row where the peg lands") - 1
-        col_end = get_choice(1, columns, "Enter the column where the peg lands") - 1
+        col_end = get_choice(
+            1, columns, "Enter the column where the peg lands") - 1
         if game.legal_move(row_start, col_start, row_end, col_end):
             game.make_move(row_start, col_start, row_end, col_end)
         else:
-            print("Sorry.  That move is now allowed.")
+            print("Sorry.  That move is not allowed.")
         print()
         print(game)
-        if not game.game_won():
-            keep_going = input("Do you want to continue (yes or no): ")
 
-    game.final_message()
 
 # ---------------------------------------
 
