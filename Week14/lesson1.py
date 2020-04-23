@@ -35,8 +35,8 @@ print(bridger)
 
 # Prepare Data -------------------------
 
-if (bridger.Total.dtype == 'int64'):
-    print("\nTotal snowfall is of type int64")
+if (bridger.Total.dtype == 'int'):
+    print("\nTotal snowfall is of type int")
 else:
     print("\nTotal Snowfall is of type", bridger.Total.dtype)
 

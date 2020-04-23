@@ -34,6 +34,7 @@ class PegRectangleSolitaire:
         answer += self.separator()
         for row in range(self.board.shape[0]):
             answer += str(row + 1) + " |"
+# which row and column is filled and which ones are empty.
             for col in range(self.board.shape[1]):
                 if self.board[row][col]:
                     answer += " * |"
@@ -46,6 +47,7 @@ class PegRectangleSolitaire:
 # ---------------------------------------
 
     def separator(self):
+# How each box is made for the peg board
         answer = "  +"
         for _ in range(self.board.shape[1]):
             answer += "---+"
@@ -62,8 +64,13 @@ class PegRectangleSolitaire:
         return False
 
     def legal_move(self, row_start, col_start, row_end, col_end):  # boolean
-        #(row_start and end, and column_start and end)
-        if self.legal_move is True:
+        #row and column has to have * for start
+        #row and column has to have   for start
+        if row_start is True:
+            if col_start is True:
+                if row_end is True:
+                    if col_end is True:
+                        return self.board
             
 #if peg is one away from empty space:
 #if peg moved is in same column or row as empty space
@@ -71,7 +78,10 @@ class PegRectangleSolitaire:
             return self.legal_move
 
     def make_move(self, row_start, col_start, row_end, col_end):
-        #init???
+        if row_start is full:
+            if col_start is full:
+                self.board = False
+        return self.make_move
 #(row_start and end, and column_start and end)
 #if move is legal, move peg to end_row, end_column
         return self.make_move
