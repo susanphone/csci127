@@ -80,11 +80,11 @@ class PegRectangleSolitaire:
     def make_move(self, row_start, col_start, row_end, col_end):
         if row_start is full:
             if col_start is full:
-                self.board = False
-        return self.make_move
+                if row_end if empty:
+                    if col_end if empty:
+                        return self.make_move
 #(row_start and end, and column_start and end)
 #if move is legal, move peg to end_row, end_column
-        return self.make_move
 
     def final_message(self,):
 #For when the game is over if statements for
