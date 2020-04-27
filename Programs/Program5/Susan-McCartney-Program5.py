@@ -5,11 +5,11 @@ import string
 # CSCI 127, Joy and Beauty of Data      |
 # Program 5: Peg Rectangle Solitaire    |
 # Susan McCartney                       |
-# Last Modified: April 20, 2019         |
+# Last Modified: April 24, 2020         |
 # ---------------------------------------
-# Peg Solitaire using object oriented 
-#programming and numpy in a game. The
-#least remaining pegs, the better!
+# Peg Solitaire using object oriented
+# programming and numpy in a game. The
+# least remaining pegs, the better!
 # ---------------------------------------
 
 # ---------------------------------------
@@ -19,14 +19,13 @@ import string
 class PegRectangleSolitaire:
 
     def __init__(self, rows, columns, empty_row, empty_col):
-        self.board = np.full((rows, columns), True) #array filled with true
+        self.board = np.full((rows, columns), True)
         self.board[empty_row][empty_col] = False
         self.pegs_left = rows * columns - 1
-        
+
 # ---------------------------------------
 
     def __str__(self):
-#follow str method for help, how 2d structure is being built
         answer = "   "
         for column in range(self.board.shape[1]):
             answer += " " + str(column + 1) + "  "
@@ -34,75 +33,131 @@ class PegRectangleSolitaire:
         answer += self.separator()
         for row in range(self.board.shape[0]):
             answer += str(row + 1) + " |"
-# which row and column is filled and which ones are empty.
             for col in range(self.board.shape[1]):
                 if self.board[row][col]:
-                    answer += " * |"
+                    answer += " o |"
                 else:
                     answer += "   |"
             answer += "\n"
             answer += self.separator()
         return answer
-    
+
 # ---------------------------------------
 
     def separator(self):
-# How each box is made for the peg board
         answer = "  +"
         for _ in range(self.board.shape[1]):
             answer += "---+"
         answer += "\n"
         return answer
 
-# ---------------------------------------
-# The four missing methods go here.  Do |
-# not modify anything else.             |
-# --------------------------------------|
     def game_over(self):
-        if self.pegs_left <= 7:
-            self.game_over = True
-        return False
+        board_height = len(self.board)
+        board_width = len(self.board[0])
+
+        # Iterate through all board positions
+        for i in range(board_height):
+            for j in range(board_width):
+                # Check for horizontal RtoL move
+                if (j + 2) <= (board_width-1):
+                    if self.legal_move(i, j, i, j + 2):
+                        return False
+                # Check for horizontal LtoR move
+                if (j - 2) >= 0:
+                    if self.legal_move(i, j, i, j - 2):
+                        return False      
+                # Check for vertical UtoD move
+                if (i + 2) <= (board_height-1):
+                    if self.legal_move(i, j, i + 2, j):
+                        return False
+                # Check for vertical DtoU move
+                if (i - 2) >= 0:
+                    if self.legal_move(i, j, i - 2, j):
+                        return False
+        return True
+
+
 
     def legal_move(self, row_start, col_start, row_end, col_end):  # boolean
-        #row and column has to have * for start
-        #row and column has to have   for start
-        if row_start is True:
-            if col_start is True:
-                if row_end is True:
-                    if col_end is True:
-                        return self.board
-            
-#if peg is one away from empty space:
-#if peg moved is in same column or row as empty space
-    #legal move
-            return self.legal_move
+        # no start peg
+        if self.board[row_start][col_start] == False:
+            return False
+        
+        # peg already exists at end spot
+        if self.board[row_end][col_end] == True:
+            return False
+        
+        is_horizontal = row_start == row_end
+        is_vertical = col_start == col_end
+        
+        # not moving a peg or moving diagonally
+        if (is_horizontal and is_vertical) or (not is_horizontal and not is_vertical):
+            return False
+        
+        # jumping left to right over no peg
+        if is_horizontal:
+            is_left_to_right = col_start < col_end
+
+            # right to left over no peg
+            if not is_left_to_right and self.board[row_end][col_end+1] == False:
+                return False            
+            # left to right over no peg
+            if is_left_to_right and self.board[row_end][col_end-1] == False:
+                return False
+            # not over one peg
+            if abs(col_end - col_start) != 2:
+                return False
+
+        if is_vertical:
+            is_up_to_down =  row_start < row_end
+
+            # down to up over no peg
+            if not is_up_to_down and self.board[row_start-1][col_end] == False:
+                return False
+            # up to down over no peg
+            if is_up_to_down and self.board[row_end-1][col_end] == False:
+                return False
+            # not over one peg
+            if abs(row_end - row_start) != 2:
+                return False
+        return True
 
     def make_move(self, row_start, col_start, row_end, col_end):
-        if row_start is full:
-            if col_start is full:
-                if row_end if empty:
-                    if col_end if empty:
-                        return self.make_move
-#(row_start and end, and column_start and end)
-#if move is legal, move peg to end_row, end_column
+        # marks start position false, end position true, and removes a peg
+        self.board[row_start][col_start] = False
+        self.board[row_end][col_end] = True
+        self.pegs_left -= 1
 
-    def final_message(self,):
-#For when the game is over if statements for
-#number of remaining pegs:
+        # Horizontal
+        if row_start == row_end:
+            # L to R or R to L
+            if col_start < col_end:
+                self.board[row_end][col_end-1] = False
+            else:
+                self.board[row_end][col_end+1] = False
+        # Vertical        
+        if col_start == col_end:
+            # U to D or D to U
+            if row_start < row_end:
+                self.board[row_end - 1][col_end] = False
+            else:
+                self.board[row_end + 1][col_end] = False
+        
+    def final_message(self):
+        # print message based on number of pegs left
         if self.pegs_left <= 2:
-            self.final_message = "You're a DigiPeg Genius!"
-        if self.pegs_left > 2 or self.pegs_left <= 4:
-            self.final_message = "Not too shabby, rookie."
-        if self.pegs_left > 4 or self.pegs_left <= 6:
-            self.final_message = "That's nothing to write home about."
-        if self.pegs_left >7:
-            self.final_message = "You're a DigiPeg Igno-Ra-Moose"
-        return self.final_message
-
+            print("You're a DigiPeg Genius!")
+        if self.pegs_left > 2 and self.pegs_left <= 4:
+            print("Not too shabby, rookie.")
+        if self.pegs_left > 4 and self.pegs_left <= 6:
+            print("That's nothing to write home about.")
+        if self.pegs_left >= 7:
+            print("You're a DigiPeg Igno-Ra-Moose")
 
 # ---------------------------------------
 # End of PegRectangleSolitaire Class    |
 # ---------------------------------------
+
 
 def get_choice(low, high, message):
     message += " [" + str(low) + " - " + str(high) + "]: "
@@ -138,7 +193,7 @@ def main():
 
     print(game)
     while (not game.game_over()):
-        row_start = get_choice(1, rows, "Enter the row of the peg to move") - 1 #keep trach of what empty space is
+        row_start = get_choice(1, rows, "Enter the row of the peg to move") - 1
         col_start = get_choice(
             1, columns, "Enter the column of the peg to move") - 1
         row_end = get_choice(1, rows, "Enter the row where the peg lands") - 1
@@ -151,7 +206,6 @@ def main():
         print()
         print(game)
 
-
-# ---------------------------------------
-
+    game.final_message()
+    
 main()

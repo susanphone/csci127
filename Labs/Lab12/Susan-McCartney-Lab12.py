@@ -4,44 +4,23 @@ from matplotlib import interactive
 
 # -------------------------------------------------
 # CSCI 127, Lab 13                                |
-# April 23, 2019                                  |
+# April 23, 2020                                  |
 # Susan McCartney                                 |
 # -------------------------------------------------
+#Turn a CSV into bar charts.
 
 def process(file_name):
     # read the file_name into a pandas dataframe
     dataframe = pd.read_csv(file_name)
-    for file in dataframe:
-        lab = pd.DataFrame(dataframe, columns=["College Name", "College Enrollemnt", "CS Professor", "Years at MSU"])
-    #     data.to_csv('lab12.csv', index=False, header=True)
-    # lab = pd.read_csv('lab12.csv', names=['College Name', 'College Enrollment', 'CS Professor', 'Years as MSU'])
-    # if (lab.'College Enrollment'.dtype == 'int'):
-    #     print(lab.'College Enrollment'.dtype)
-    sorted_data1 = lab.sort_values(['College Enrollment'])
-    sorted_data2 = lab.sort_values(['Years at MSU'])
-    # print(sorted_data1, sorted_data2)
-    lists = [sorted_data1, sorted_data2]
-    # data = pd.DataFrame(file_name)
-    # print(data)
+    #sort the values
+    dataframe = dataframe.sort_values(dataframe.columns[1], ascending=False)
+    dataframe.plot.bar(x= dataframe.columns[0])
+    #set titles, x-axis, y-axis
+    plt.title(file_name.replace(".csv", ""))
+    x_axis = dataframe.columns[0]
+    y_axis = dataframe.columns[1]
     
-    #labels found from DataFrame.column on source-----column headers
-    #use lesson1.py
-
-    # sort and plot the dataframe using arguments "title", "legend", "x", "y", and "kind"
-#which title to sort
-    if lists == sorted_data1:
-        x_axis = 'College Enrollment'
-        y_axis = 'College Name'
-        title = 'fig1'
-    if lists == sorted_data2:
-        x_axis = 'CS Professor'
-        y_axis = 'Years at MSU'
-        title = 'fig2'
-    # The only statements that may use the matplotlib library appear next.
-    lists.plot(x= x_axis, y= y_axis, kind='bar')
-    
-    plt.title(title)
-    # Do not modify them.
+    #pre-determined labels
     plt.xlabel(x_axis)      # Note: x-axis should be determined above
     plt.ylabel(y_axis)      # Note: y-axis should be determined above
     plt.show()
