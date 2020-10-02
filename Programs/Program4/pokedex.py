@@ -100,9 +100,6 @@ def print_pokedex(pokedex):
         pokemon.print_pokemon()
 
 # ---------------------------------------
-# Do not change anything below this line
-# ---------------------------------------
-
 
 def create_pokedex(filename):
     pokedex = []
